@@ -23,7 +23,7 @@ export class CrudService {
   }
 
   //ingresar datos al storage key autoincrementar
-  async agregar(valor:string){
+  async agregar(valor:any){
     let id = await this.storage.length() + 1 ;
     await this.storage.set(id.toString(), valor);
   }
@@ -34,7 +34,7 @@ export class CrudService {
   }
   listar()
   {
-    let listado = []
+    let listado: any[] = []
     this.storage.forEach((v,k) => {listado.push(v); })
     return listado;
 
